@@ -80,7 +80,7 @@ import org.apache.tools.ant.taskdefs.condition.Os
 
 // Material Icons
 project.ext.vectoricons = [
-    iconFontNames: ['Ionicons.ttf']
+    iconFontNames: ['Ionicons.ttf', 'AntDesign.ttf']
 ]
 
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
