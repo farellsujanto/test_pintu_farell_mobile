@@ -78,6 +78,14 @@ import org.apache.tools.ant.taskdefs.condition.Os
  * ]
  */
 
+// Material Icons
+project.ext.vectoricons = [
+    iconFontNames: ['Ionicons.ttf']
+]
+
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+
+// React
 project.ext.react = [
     enableHermes: true,  // clean and rebuild if changing
 ]
@@ -277,6 +285,9 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+    // Others
+    implementation project(':react-native-vector-icons')
 }
 
 if (isNewArchitectureEnabled()) {
