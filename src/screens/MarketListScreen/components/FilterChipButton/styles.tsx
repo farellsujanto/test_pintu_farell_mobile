@@ -14,6 +14,8 @@ export default StyleSheet.create({
         paddingHorizontal: 8,
         paddingVertical: 4,
         borderRadius: 24,
+        borderColor: blackColor,
+        borderWidth: 0.1,
     },
     chipText: {
         fontSize: 12,
