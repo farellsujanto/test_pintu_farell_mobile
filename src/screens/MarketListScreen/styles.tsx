@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { whiteColor } from '../../themes/colors';
+import { blackColor, whiteColor } from '../../themes/colors';
 
 export default StyleSheet.create({
     container: {
@@ -12,7 +12,19 @@ export default StyleSheet.create({
     filterChipsContainer: {
         paddingHorizontal: 16,
         paddingVertical: 8,
-        justifyContent: 'space-evenly',
+        justifyContent: 'space-between',
         flexDirection: 'row',
     },
+    sortContainer: {
+        flexDirection: 'row',
+        paddingHorizontal: 16,
+        paddingVertical: 4,
+        marginBottom: 16,
+        alignItems: 'center',
+    },
+    sortText: {
+        fontSize: 14,
+        fontWeight: '700',
+        color: blackColor,
+    }
 });
