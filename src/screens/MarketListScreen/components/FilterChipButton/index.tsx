@@ -16,7 +16,7 @@ const FilterChipButton = ({ label, iconName }: FilterChipButtonProps) => {
             <Pressable
                 android_ripple={{
                     color: blackColor,
-                    borderless: true
+                    borderless: true,
                 }}
                 style={styles.chipPressableContainer}
                 onPress={() => { }} >

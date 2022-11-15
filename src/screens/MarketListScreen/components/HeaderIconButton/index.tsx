@@ -19,7 +19,7 @@ const HeaderIconButton = ({ onPress, children }: HeaderIconButtonProps) => {
             <Pressable
                 android_ripple={{
                     color: blackColor,
-                    borderless: true
+                    borderless: true,
                 }}
                 onPress={onPress}>
                 {children}

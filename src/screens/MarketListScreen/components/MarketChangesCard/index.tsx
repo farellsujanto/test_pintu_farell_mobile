@@ -23,7 +23,7 @@ const ChangesText = ({ changes }: ChangesTextProps) => {
     return (
         <>
             <Icon
-                name={isChangesPositive ? 'caret-up': 'caret-down'}
+                name={isChangesPositive ? 'caret-up' : 'caret-down'}
                 color={isChangesPositive ? greenColor : redColor}
                 style={styles.changesIcon} />
             <Text style={isChangesPositive ? styles.changesTextGreen : styles.changesTextRed}>{changes} %</Text>

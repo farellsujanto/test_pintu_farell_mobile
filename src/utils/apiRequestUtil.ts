@@ -1,4 +1,4 @@
-import ApiResponse from "../models/apiResponseModel";
+import ApiResponse from '../models/apiResponseModel';
 
 // TODO: Put in .env
 const BASE_URL = 'https://api.pintu.co.id';
@@ -34,16 +34,16 @@ export async function fetchApi<T>(
             body: body,
         }).then(async (res) => {
 
-            const isSuccessCode = Math.floor(res.status / 100) == 2;
+            const isSuccessCode = Math.floor(res.status / 100) === 2;
             const json = (await res.json()) as ApiResponse<T>;
             if (isSuccessCode) {
                 return json.payload;
             }
             // TODO: Handle non 2xx response codes
-            return null; 
+            return null;
         });
     } catch (e) {
-        console.log("Error when fetching", e);
+        console.log('Error when fetching', e);
         return null;
     }
 }

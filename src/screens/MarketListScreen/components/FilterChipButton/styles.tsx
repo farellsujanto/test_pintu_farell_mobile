@@ -20,5 +20,5 @@ export default StyleSheet.create({
     chipText: {
         fontSize: 12,
         color: blackColor,
-    }
+    },
 });

@@ -48,7 +48,7 @@ const MarketChangesList = () => {
         supportedCurrencies,
         isSupportedCurrenciesLoading,
         priceChanges,
-        isPriceChangesLoading
+        isPriceChangesLoading,
     ]);
 
     return (

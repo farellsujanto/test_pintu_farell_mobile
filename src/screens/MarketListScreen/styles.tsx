@@ -26,5 +26,5 @@ export default StyleSheet.create({
         fontSize: 14,
         fontWeight: '700',
         color: blackColor,
-    }
+    },
 });
