@@ -1,8 +1,7 @@
 import React, { useMemo } from 'react';
 import { FlatList, View } from 'react-native';
-
-import { MarketChanges } from '../../../../models/marketChangesModel';
 import { usePriceChangesQuery, useSupportedCurrenciesQuery } from '../../../../queries/marketQuery/marketQueryHooks';
+import { getMarketChangesListData } from '../../../../utils/marketListUtil';
 import MarketChangesCard from '../MarketChangesCard';
 import MarketChangesListShimmer from '../MarketChangesListShimmer';
 import styles from './styles';
@@ -19,30 +18,14 @@ const MarketChangesList = () => {
         isLoading: isPriceChangesLoading,
     } = usePriceChangesQuery();
 
-    const marketChangesListData: MarketChanges[] = useMemo(() => {
+    const marketChangesListData = useMemo(() => {
         const isDataStillLoading = isSupportedCurrenciesLoading || isPriceChangesLoading;
         const isDataEmpty = !supportedCurrencies || !priceChanges;
         if (isDataStillLoading || isDataEmpty) {
             return [];
         }
 
-        const newMarketChangesListData = supportedCurrencies.map((supportedCurrency) => {
-            console.log(supportedCurrency)
-            const currencyPriceChanges = priceChanges.find((priceChange) => {
-                const splittedCurrencyPair = priceChange.pair.split('/');
-                return splittedCurrencyPair[0].toLowerCase() === supportedCurrency.currencySymbol.toLowerCase();
-            });
-
-            return {
-                name: supportedCurrency.name,
-                currencySymbol: supportedCurrency.currencySymbol,
-                color: supportedCurrency.color,
-                logo: supportedCurrency.logo,
-                changes: currencyPriceChanges?.month ?? '',
-                latestPrice: currencyPriceChanges?.latestPrice ?? '',
-            }
-        }).filter((data) => data.changes);
-
+        const newMarketChangesListData = getMarketChangesListData(supportedCurrencies, priceChanges);
         return newMarketChangesListData;
     }, [
         supportedCurrencies,
